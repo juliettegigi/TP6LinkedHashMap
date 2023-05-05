@@ -204,22 +204,24 @@ public class ViewAgregarMateria extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField_materiaFocusGained
 
     private void jButton_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_guardarActionPerformed
-         int id=Integer.parseInt(jTextField_codigoMateria.getText());
+        int id=Integer.parseInt(jTextField_codigoMateria.getText());
        int anio=Integer.parseInt(jTextField_anio.getText());
        String nombre=jTextField_materia.getText();
        
        
            if(Colegio.materias.containsKey(id)){
-                 int respuesta = JOptionPane.showConfirmDialog(null, "Esta materia ya se encuentra registrada, si acepta las modificaciones se guardarán ¿Quieres hacer esto?", "Confirmar acción", JOptionPane.YES_NO_OPTION);
+                 int respuesta = JOptionPane.showConfirmDialog(null, "Esta materia ya se encuentra registrada, si hace click en \"si\"  cualquier modificación se guardará ¿Quieres hacer esto?", "Confirmar acción", JOptionPane.YES_NO_OPTION);
                  if (respuesta == JOptionPane.NO_OPTION) {
-                      System.out.println("El usuario ha cancelado la acción.");
                        return;
                  } 
             } 
            
        Colegio.materias.put(id,new Materia(id,nombre,anio));
        JOptionPane.showMessageDialog(null,"Materia agregada");
-       v.initErrores();
+     //  v.initErrores();
+           
+      
+      
       
     }//GEN-LAST:event_jButton_guardarActionPerformed
 

@@ -161,12 +161,12 @@ private Validaciones v=new Validaciones(3);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_guardarActionPerformed
-           int legajo=Integer.parseInt(jTextField_legajo.getText());
+            int legajo=Integer.parseInt(jTextField_legajo.getText());
      String nombre=jTextField_nombre.getText();
      String apellido=jTextField_apellido.getText();
      
      if(Colegio.alumnos.containsKey(legajo)){
-        int respuesta = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que quieres hacer esto?", "Confirmar acción", JOptionPane.YES_NO_OPTION);
+        int respuesta = JOptionPane.showConfirmDialog(null, "Este alumno ya se encuentra registrado, si hace click en \"si\"  cualquier modificación se guardará ¿Quieres hacer esto?", "Confirmar acción", JOptionPane.YES_NO_OPTION);
         if (respuesta == JOptionPane.NO_OPTION) {
             System.out.println("El usuario ha cancelado la acción.");
             return;
@@ -174,8 +174,8 @@ private Validaciones v=new Validaciones(3);
      } 
             Colegio.alumnos.put(legajo,new Alumno(legajo,nombre,apellido));
             JOptionPane.showMessageDialog(null,"Alumno agregado");
-            jButton1.setEnabled(false);
-            v.initErrores();
+          //  jButton1.setEnabled(false);
+           // v.initErrores();
     }//GEN-LAST:event_jButton_guardarActionPerformed
 
 

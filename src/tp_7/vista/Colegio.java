@@ -9,6 +9,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
 import javax.swing.JPanel;
 import tp_7.entidades.Alumno;
 import tp_7.entidades.Materia;
@@ -19,7 +20,7 @@ import tp_7.entidades.Materia;
  */
 public class Colegio extends javax.swing.JFrame {
 
-    public static Map<Integer,Alumno> alumnos=new LinkedHashMap();
+       public static Map<Integer,Alumno> alumnos=new LinkedHashMap();
     public static Map<Integer,Materia> materias=new LinkedHashMap();
     
     public Colegio() {
@@ -44,11 +45,12 @@ public class Colegio extends javax.swing.JFrame {
 
         escritorio = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem_addMateria = new javax.swing.JMenuItem();
         jMenuItem_addAlumno = new javax.swing.JMenuItem();
         jMenuItem_inscribir = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,7 +65,19 @@ public class Colegio extends javax.swing.JFrame {
             .addGap(0, 469, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("File");
+        jMenu2.setText("File");
+
+        jMenuItem1.setText(" Alumnos/cantidad de materias");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu1.setText("Edit");
 
         jMenuItem_addMateria.setText("Agregar materia");
         jMenuItem_addMateria.addActionListener(new java.awt.event.ActionListener() {
@@ -90,9 +104,6 @@ public class Colegio extends javax.swing.JFrame {
         jMenu1.add(jMenuItem_inscribir);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -135,6 +146,11 @@ public class Colegio extends javax.swing.JFrame {
         crearPanel(v);
     }//GEN-LAST:event_jMenuItem_inscribirActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+         ViewAlumnosCantidadMateria v=new ViewAlumnosCantidadMateria();
+        crearPanel(v);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -175,6 +191,7 @@ public class Colegio extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem_addAlumno;
     private javax.swing.JMenuItem jMenuItem_addMateria;
     private javax.swing.JMenuItem jMenuItem_inscribir;

@@ -5,6 +5,7 @@
  */
 package tp_7.vista;
 
+import java.util.Iterator;
 import tp_7.entidades.Alumno;
 import tp_7.entidades.Materia;
 
@@ -27,7 +28,7 @@ public class ViewInscribir extends javax.swing.JPanel {
             //apellido nombre (numeroLegajo)
         }
         for(Materia  m:Colegio.materias.values()){
-             jComboBox_materias.addItem(m.getNombre());
+             jComboBox_materias.addItem(m.getNombre()+"("+m.getIdMateria()+")");
         }
     }
 
@@ -70,11 +71,11 @@ public class ViewInscribir extends javax.swing.JPanel {
 
         jComboBox_materias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(jComboBox_materias);
-        jComboBox_materias.setBounds(260, 120, 180, 30);
+        jComboBox_materias.setBounds(230, 120, 180, 30);
 
         jComboBox_alumnos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(jComboBox_alumnos);
-        jComboBox_alumnos.setBounds(280, 200, 190, 30);
+        jComboBox_alumnos.setBounds(220, 200, 190, 30);
 
         jButton1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jButton1.setText("Inscribir");
@@ -84,12 +85,12 @@ public class ViewInscribir extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(300, 350, 100, 29);
+        jButton1.setBounds(380, 380, 100, 29);
 
         jButton2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jButton2.setText("Salir");
         add(jButton2);
-        jButton2.setBounds(450, 360, 73, 23);
+        jButton2.setBounds(490, 380, 80, 30);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -97,11 +98,11 @@ public class ViewInscribir extends javax.swing.JPanel {
        String []arr=s.split("[(||)]");
        int key=Integer.parseInt(arr[1]);
        Alumno a=Colegio.alumnos.get(key);
-       
+        System.out.println(key);
        String s2=(String)jComboBox_materias.getSelectedItem();
-       String []arr2=s.split("[(||)]");
+       String []arr2=s2.split("[(||)]");
        int key2=Integer.parseInt(arr2[1]);
-        
+        System.out.println(key2);
         a.agregarMateria(Colegio.materias.get(key2));
         Colegio.alumnos.put(key, a);
     }//GEN-LAST:event_jButton1ActionPerformed
