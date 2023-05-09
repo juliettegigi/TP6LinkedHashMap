@@ -49,7 +49,7 @@ public class Validaciones {
         if(texto.length()==0){
             errores[i]="campo obligatorio";
         }
-        else if(!texto.matches("[A-ZÑ]+(\\s[A-ZÑ]+)*")){
+        else if(!texto.matches("[A-ZÑÁ-ÚÜ]+(\\s[A-ZÑÁ-ÚÜ]+)*")){
             errores[i]="ha ingresado un carácter no válido";
         }
         else errores[i]="";

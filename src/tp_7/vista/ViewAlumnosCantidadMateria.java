@@ -5,6 +5,10 @@
  */
 package tp_7.vista;
 
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import tp_7.entidades.Alumno;
 
 /**
@@ -13,20 +17,56 @@ import tp_7.entidades.Alumno;
  */
 public class ViewAlumnosCantidadMateria extends javax.swing.JPanel {
 
-    /**
-     * Creates new form ViewAlumnosCantidadMateria
-     */
+   private javax.swing.JScrollPane jScrollPane2;
+    private JTable jTable1;
+   private DefaultTableModel tabla = new DefaultTableModel();
     public ViewAlumnosCantidadMateria() {
-        initComponents();
-        setSize(592,429);
+       
+         setSize(592,429);
+        tabla.addColumn("Nombre y apellido");
+        tabla.addColumn("Cantidad de materias");
+        jTable1 = new JTable(tabla);
+       jTable1.setFillsViewportHeight(true);
         
       for(Alumno a:Colegio.alumnos.values()){
-            jTextArea1.append("Alumno:"+a.getNombre()+" "+a.getApellido()+" \n" );
-            jTextArea1.append("cantidad de materias: "+a.cantidadMaterias()+" \n\n");
-            //apellido nombre (numeroLegajo)
+          Object[] fila = {a.getNombre()+" "+a.getApellido(),a.cantidadMaterias()};      
+tabla.addRow(fila);
+            
         }
+           jScrollPane2 = new JScrollPane(jTable1);
+
+       add(jScrollPane2);
+     
+
+// Configuramos el tamaño del panel como dinámico
+setPreferredSize(null);
+      setVisible(true);
     }
 
+    private void iniciarTablaa(){
+        jScrollPane2 = new javax.swing.JScrollPane();
+      
+        jTable1.setColumnSelectionAllowed(true);
+        jScrollPane2.setViewportView(jTable1);
+        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(76, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,34 +76,21 @@ public class ViewAlumnosCantidadMateria extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        setBackground(new java.awt.Color(255, 51, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
+            .addGap(0, 582, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+            .addGap(0, 510, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

@@ -115,8 +115,14 @@ private Validaciones v=new Validaciones(3);
             }
         });
         add(jButton_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, -1, -1));
+
+        errorLegajo.setForeground(new java.awt.Color(255, 0, 0));
         add(errorLegajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 290, 20));
+
+        errorApellido.setForeground(new java.awt.Color(255, 0, 0));
         add(errorApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 420, 20));
+
+        errorNombre.setForeground(new java.awt.Color(255, 0, 0));
         add(errorNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 420, 20));
     }// </editor-fold>//GEN-END:initComponents
 
