@@ -11,7 +11,7 @@ package controlador;
  */
 public class Validaciones {
     
-    String []errores;
+   private  String []errores;
     public Validaciones(int length){ /*length tiene q ser la cantidad de textfield*/
         errores=new String[length];
         initErrores();

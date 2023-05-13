@@ -6,6 +6,7 @@
 package tp_7.vista;
 
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 import tp_7.entidades.Alumno;
 import tp_7.entidades.Materia;
 
@@ -89,23 +90,41 @@ public class ViewInscribir extends javax.swing.JPanel {
 
         jButton2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jButton2.setText("Salir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         add(jButton2);
         jButton2.setBounds(490, 380, 80, 30);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String s=(String)jComboBox_alumnos.getSelectedItem();
+        if(s==null){
+             JOptionPane.showMessageDialog(null,"Debe seleccionar un alumno");
+             return;
+        }
        String []arr=s.split("[(||)]");
        int key=Integer.parseInt(arr[1]);
        Alumno a=Colegio.alumnos.get(key);
-        System.out.println(key);
+        
        String s2=(String)jComboBox_materias.getSelectedItem();
+         if(s2==null){
+             JOptionPane.showMessageDialog(null,"Debe seleccionar una materia");
+             return;
+        }
        String []arr2=s2.split("[(||)]");
        int key2=Integer.parseInt(arr2[1]);
-        System.out.println(key2);
+       
         a.agregarMateria(Colegio.materias.get(key2));
         Colegio.alumnos.put(key, a);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+      setVisible(false);
+    
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
